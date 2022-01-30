@@ -6,7 +6,7 @@ const MarketplaceUpgradeable = artifacts.require("MarketplaceUpgradeable");
 const DCHeroCardProxy = artifacts.require("DCHeroCardProxy");
 const MarvelHeroCardProxy = artifacts.require("DCHeroCardProxy");
 const MarketplaceProxy = artifacts.require("DCHeroCardProxy");
-const { proxyAdminAddress, walletAddress } = require("../secrets-local.json");
+const { proxyAdminAddress, walletAddress, seller } = require("../secrets.json");
 
 module.exports = async (deployer) => {
   await deployer.deploy(DCHeroCardUpgradeable);
@@ -57,4 +57,18 @@ module.exports = async (deployer) => {
 
   const marketplaceProxy = await MarketplaceProxy.deployed();
   console.log("marketplaceProxyAddress:", marketplaceProxy.address);
+
+  // prepare data
+
+  const dcHeroCardContract = await DCHeroCardUpgradeable.at(
+    dcHeroCardProxy.address
+  );
+  await dcHeroCardContract.mint(seller, 1, 1);
+  await dcHeroCardContract.mint(seller, 2, 1);
+
+  const marvelHeroCardContract = await MarvelHeroCardUpgradeable.at(
+    marvelHeroCardProxy.address
+  );
+  await marvelHeroCardContract.mint(seller, 1, 1);
+  await marvelHeroCardContract.mint(seller, 2, 1);
 };

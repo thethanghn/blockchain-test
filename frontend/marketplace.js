@@ -2,9 +2,9 @@ let dcHeroCardContract;
 let marvelHeroCardContract;
 let marketplaceContract;
 
-const MARKETPLACE_ADDRESS = "0x5A39afb65a8A574712D01671B8435De9Ba15e11E";
-const DC_HERO_CARD_ADDRESS = "0xEDB0660aedB1641486d72B393C2022129C2FB24A";
-const MARVEL_HERO_CARD_ADDRESS = "0x91A076072DaBA0D6e3a74EB4261AbC354c591c85";
+const MARKETPLACE_ADDRESS = "0x48725902d9d255b31B9e4a5E7F9a82132dA310bD";
+const DC_HERO_CARD_ADDRESS = "0xd7A32a955f2b135aD19943832FF5E04E9B822b83";
+const MARVEL_HERO_CARD_ADDRESS = "0xec28bdB62Ca865Ec6fEE2D20C4dc598b76C55025";
 
 const initWeb3 = async () => {
   if (window.ethereum) {
@@ -94,6 +94,27 @@ const renderMyNFTs = async () => {
       <label for="dc-card-${tid}-price">Price:</label>
       <input type="text" id="dc-card-${tid}-price" name="price" />
       <button onClick="list('dc', ${tid})">list</button>
+    </div>
+    `;
+  }
+  const myMarvelBalance = await marvelHeroCardContract.methods
+    .balanceOf(myAddress)
+    .call();
+  for (let i = 0; i < myMarvelBalance; ++i) {
+    const tokenId = await marvelHeroCardContract.methods
+      .tokenOfOwnerByIndex(myAddress, i)
+      .call();
+    const tid = tokenId.toString();
+    const data = await marvelHeroCardContract.methods.idToCard(tokenId).call();
+    const level = data?.level?.toString();
+    const rarity = data?.rarity?.toString();
+
+    html += `
+    <div id="marvel-card-${tid}">
+      type: marvel, id: ${tid}, level: ${level}, rarity: ${rarity} <br>
+      <label for="marvel-card-${tid}-price">Price:</label>
+      <input type="text" id="marvel-card-${tid}-price" name="price" />
+      <button onClick="list('marvel', ${tid})">list</button>
     </div>
     `;
   }

@@ -1,0 +1,262 @@
+{
+	"compiler": {
+		"version": "0.8.10+commit.fc410830"
+	},
+	"language": "Solidity",
+	"output": {
+		"abi": [
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "_logic",
+						"type": "address"
+					},
+					{
+						"internalType": "address",
+						"name": "admin_",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "_data",
+						"type": "bytes"
+					}
+				],
+				"stateMutability": "payable",
+				"type": "constructor"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "previousAdmin",
+						"type": "address"
+					},
+					{
+						"indexed": false,
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "AdminChanged",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "beacon",
+						"type": "address"
+					}
+				],
+				"name": "BeaconUpgraded",
+				"type": "event"
+			},
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "implementation",
+						"type": "address"
+					}
+				],
+				"name": "Upgraded",
+				"type": "event"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "fallback"
+			},
+			{
+				"inputs": [],
+				"name": "admin",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "admin_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newAdmin",
+						"type": "address"
+					}
+				],
+				"name": "changeAdmin",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [],
+				"name": "implementation",
+				"outputs": [
+					{
+						"internalType": "address",
+						"name": "implementation_",
+						"type": "address"
+					}
+				],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					}
+				],
+				"name": "upgradeTo",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "newImplementation",
+						"type": "address"
+					},
+					{
+						"internalType": "bytes",
+						"name": "data",
+						"type": "bytes"
+					}
+				],
+				"name": "upgradeToAndCall",
+				"outputs": [],
+				"stateMutability": "payable",
+				"type": "function"
+			},
+			{
+				"stateMutability": "payable",
+				"type": "receive"
+			}
+		],
+		"devdoc": {
+			"kind": "dev",
+			"methods": {
+				"admin()": {
+					"details": "Returns the current admin. NOTE: Only the admin can call this function. See {ProxyAdmin-getProxyAdmin}. TIP: To get this value clients can read directly from the storage slot shown below (specified by EIP1967) using the https://eth.wiki/json-rpc/API#eth_getstorageat[`eth_getStorageAt`] RPC call. `0xb53127684a568b3173ae13b9f8a6016e243e63b6e8ee1178d6a717850b5d6103`"
+				},
+				"changeAdmin(address)": {
+					"details": "Changes the admin of the proxy. Emits an {AdminChanged} event. NOTE: Only the admin can call this function. See {ProxyAdmin-changeProxyAdmin}."
+				},
+				"implementation()": {
+					"details": "Returns the current implementation. NOTE: Only the admin can call this function. See {ProxyAdmin-getProxyImplementation}. TIP: To get this value clients can read directly from the storage slot shown below (specified by EIP1967) using the https://eth.wiki/json-rpc/API#eth_getstorageat[`eth_getStorageAt`] RPC call. `0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc`"
+				},
+				"upgradeTo(address)": {
+					"details": "Upgrade the implementation of the proxy. NOTE: Only the admin can call this function. See {ProxyAdmin-upgrade}."
+				},
+				"upgradeToAndCall(address,bytes)": {
+					"details": "Upgrade the implementation of the proxy, and then call a function from the new implementation as specified by `data`, which should be an encoded function call. This is useful to initialize new storage variables in the proxied contract. NOTE: Only the admin can call this function. See {ProxyAdmin-upgradeAndCall}."
+				}
+			},
+			"version": 1
+		},
+		"userdoc": {
+			"kind": "user",
+			"methods": {},
+			"version": 1
+		}
+	},
+	"settings": {
+		"compilationTarget": {
+			"contracts/proxy/MyProxy.sol": "MyProxy"
+		},
+		"evmVersion": "london",
+		"libraries": {},
+		"metadata": {
+			"bytecodeHash": "ipfs"
+		},
+		"optimizer": {
+			"enabled": false,
+			"runs": 200
+		},
+		"remappings": []
+	},
+	"sources": {
+		"@openzeppelin/contracts/proxy/ERC1967/ERC1967Proxy.sol": {
+			"keccak256": "0xea40bf10119e88ed92ff8f1c72d01b0d2bfc810ad32c87d63ab6f316595d2c91",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://648fd88d5f3d13059ed6e50593b285606f6173c9fe3d020f4b2e195f6e512c47",
+				"dweb:/ipfs/Qma93NF9iLAKLTSabUxwL7qij3iQXp5293UCpDkGK2pm3u"
+			]
+		},
+		"@openzeppelin/contracts/proxy/ERC1967/ERC1967Upgrade.sol": {
+			"keccak256": "0xfd0d01e9036a03e50a71009749b9bfe7570a8f5b852ea409f794debfdd646dbd",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://f55720689d7006549fdaf3d565351e053a8156347955e1682c97afe907358c65",
+				"dweb:/ipfs/QmXmr8DBkEP4xKqgRBi32SRg4WKPqfgy49j5aHSYkLvhGm"
+			]
+		},
+		"@openzeppelin/contracts/proxy/Proxy.sol": {
+			"keccak256": "0xdfddefa47c1f11dde2c3b5533c76ccef27a526985c74d9c917deb699d5d46a56",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://fd15423cc0456b783054f974bc88f25b88c99319a2cfec4b5745acfedbbd1d88",
+				"dweb:/ipfs/QmZVXupWzRDTXynYd2GLtB9CTGF9ehrqzcPhqXNVZPDCTc"
+			]
+		},
+		"@openzeppelin/contracts/proxy/beacon/IBeacon.sol": {
+			"keccak256": "0x94f08740b99a0997bc8363edb752b38354f730a38c54eb7bdd38a8a22ff34aae",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://e27babc1cc78d71ddfa1474f9b2cb04517ef4570fc4c41ecfa97ecf6aa25e7bf",
+				"dweb:/ipfs/QmePWVAAJdWJtfgKAPJe1kRgYxorkNEFhGrAN2jLLGiFTX"
+			]
+		},
+		"@openzeppelin/contracts/proxy/transparent/TransparentUpgradeableProxy.sol": {
+			"keccak256": "0xbed75cc7d07d1e6dae9eaf2cfe18618620963b00adfe1dbc10dbce9369036933",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://2540180c07703b1ee9d048aa433c17001a7fb6e408ccb0cd62936a84003481a9",
+				"dweb:/ipfs/QmcxTzS9pZtETDrheMLxRHDBK1V7DoCwnKMs4m3zZPBXCd"
+			]
+		},
+		"@openzeppelin/contracts/utils/Address.sol": {
+			"keccak256": "0x9944d1038f27dcebff810d7ba16b3b8058b967173d76874fb72dd7cd84129656",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://7c455cda07c5f8978c57e545ddde382552d3a55b6e3682e0f809ed07ec7defbe",
+				"dweb:/ipfs/QmXkoKbxyMcMzjYdkXi5t4t3ZjBQ81pj7AaanS9jhePxyt"
+			]
+		},
+		"@openzeppelin/contracts/utils/StorageSlot.sol": {
+			"keccak256": "0x5d874c66c21369dce8d3fe0b6c41316b0c289e45c0b4a77090c010ac2bb80e61",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://40c0d714529b6514f623c6d023ab0594ee0801da8afd5ee8167c323da6f0979a",
+				"dweb:/ipfs/QmTmhKaXGfu5MGKaz1Pcjrh9xWbkNtzFeok4PxaKREdf9X"
+			]
+		},
+		"contracts/proxy/MyProxy.sol": {
+			"keccak256": "0xadb98e6ae946434680086d17f8b33c19435cf073f4630ed879299d034eaf3a79",
+			"license": "MIT",
+			"urls": [
+				"bzz-raw://699532c4e6de5664f33e8ab28f7f489e8b325f71904e6a20f91ed75b25be52ab",
+				"dweb:/ipfs/QmYGphkHPrAMaYyAwB2m17RqUAPhy9zE4jkxLiChYdkAR6"
+			]
+		}
+	},
+	"version": 1
+}

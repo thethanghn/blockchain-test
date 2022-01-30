@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <title>Marketplace</title>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+  </head>
+  <body>
+    <div>
+      <button id="btn-login-metamask" onClick="connectToMetamask()">
+        Connect Metamask
+      </button>
+      <h4 id="metamask-status">Disconnected</h4>
+    </div>
+    <div>
+      <h4>My NFTs</h4>
+      <div id="my-nft"></div>
+    </div>
+    <div>
+      <h4>Marketplace</h4>
+      <div id="marketplace"></div>
+    </div>
+  </body>
+  <script type="text/javascript" src="./bn.js"></script>
+  <script type="text/javascript" src="./marketplace.js"></script>
+</html>

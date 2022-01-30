@@ -1,0 +1,18 @@
+{
+  "scripts": {
+    "solhint": "./node_modules/.bin/solhint -f table contracts/**/*.sol",
+    "prettier": "./node_modules/.bin/prettier --write contracts/**/*.sol"
+  },
+  "devDependencies": {
+    "@truffle/hdwallet-provider": "2.0.0",
+    "prettier": "^2.5.1",
+    "prettier-plugin-solidity": "^1.0.0-beta.19",
+    "solhint": "^3.3.6",
+    "solhint-plugin-prettier": "^0.0.5"
+  },
+  "dependencies": {
+    "@openzeppelin/contracts": "4.4.0",
+    "@openzeppelin/contracts-upgradeable": "4.4.1",
+    "@openzeppelin/test-helpers": "0.5.15"
+  }
+}

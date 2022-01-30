@@ -1,0 +1,26 @@
+# Created by https://www.toptal.com/developers/gitignore/api/soliditytruffle
+# Edit at https://www.toptal.com/developers/gitignore?templates=soliditytruffle
+
+### SolidityTruffle ###
+# Logs
+logs
+*.log
+
+# depedencies
+node_modules
+
+# testing
+coverage
+shippable
+
+# production
+build
+build_webpack
+
+# misc
+.DS_Store
+npm-debug.log
+#truffle
+.tern-port
+
+# End of https://www.toptal.com/developers/gitignore/api/soliditytruffle
